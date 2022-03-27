@@ -1,1 +1,28 @@
+# Directories
 .terraform/
+.vagrant
+
+
+# compiled files
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+
+# logfiles
+ *.log
+
+# ssh keys
+*.pem
+
+# backups
+*.bak 
+
+# Ignored terraform files
+*gitignore*.tf 
+
+#ignore VSCode files
+.vscode/
+
+
+
+
