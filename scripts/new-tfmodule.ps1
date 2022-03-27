@@ -22,4 +22,6 @@ New-Item -ItemType File -Name main.tf
 #Create variable file
 New-Item -ItemType File -Name variable.tf
 #create an output file
-New-Item -ItemType File output
+New-Item -ItemType File -Name output.tf
+#create a module specification file
+New-Item -ItemType File -Name readme.md
