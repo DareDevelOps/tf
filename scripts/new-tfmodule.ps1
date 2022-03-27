@@ -1,9 +1,14 @@
 <#
 .SYNOPSIS
+Create a new Terraform module based on the project name
 .DESCRIPTION
+This is a simple interactive script to generate the basic file structure for a Terraform module.
+If the project module already exists then you could substitute project name for sub-module name
+for example if you needed toadd another resource type that needed a module of it's own
+$Path would be sub-module name.
 .NOTES
-Author:
-Creation Date:
+Author: Drew Burt
+Creation Date: 3-26-2022
 #>
 
 #common parameters
