@@ -5,12 +5,7 @@ terraform {
       version = "3.0.0"
      }
   }
-  backend "azurerm" {
-    resource_group_name = "rg-eu1iac"
-    storage_account_name = "saeu1iac"
-    container_name = "tfstate"
-    key = "iac.tfstate"
-  }
+ 
 }
 
 provider "azurerm" {
@@ -36,7 +31,7 @@ resource "azurerm_storage_account" "sa" {
 }
 
 resource "azurerm_key_vault" "kv" {
-  name = "kv-eu1iac"
+  name = "kv-eu1iacstate"
   resource_group_name = var.azure_rg
   location = var.azure_location
   enabled_for_deployment = true

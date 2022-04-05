@@ -9,11 +9,16 @@ $userId = (Get-AzContext).Account.Id
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -StorageAccountName $saName
 
 # Assign Azure role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role."
-New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
+#New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 # Give your user principal access to all storage account permissions, on your Key Vault instance
 
 Set-AzKeyVaultAccessPolicy -VaultName $kvName -UserPrincipalName $userId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recover, backup, restore, purge
+Set-AzKeyVaultAccessPolicy -VaultName $kvName -ServicePrincipalName $keyVaultSpAppId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recover, backup, restore, purge
 
 # Add your storage account to your Key Vault's managed storage accounts
 
 Add-AzKeyVaultManagedStorageAccount -VaultName $kvName -AccountName $saName -AccountResourceId $storageAccount.Id -ActiveKeyName $sakeyName -DisableAutoRegenerateKey
+
+$regenPeriod = [System.Timespan]::FromDays(1)
+
+Add-AzKeyVaultManagedStorageAccount -VaultName $kvName -AccountName $saName -AccountResourceId $storageAccount.Id -ActiveKeyName $sakeyName -RegenerationPeriod $regenPeriod
