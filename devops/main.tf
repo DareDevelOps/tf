@@ -5,6 +5,13 @@ terraform {
       version = "3.0.0"
      }
   }
+  backend "azurerm" {
+    resource_group_name = "rg-eu1"
+    storage_account_name = "saeu1iac"
+    container_name = "tfsdevops"
+    key = "terraform.tfstate"
+
+  }
  
 }
 
