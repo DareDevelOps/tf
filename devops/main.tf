@@ -5,13 +5,7 @@ terraform {
       version = "3.0.0"
     }
   }
-  backend "azurerm" {
-    resource_group_name  = "rg-eu1"
-    storage_account_name = "saeu1devops"
-    container_name       = "tfsdevops"
-    key                  = "terraform.tfstate"
 
-  }
 
 }
 
@@ -35,5 +29,5 @@ module "azurerm_storage_account" {
 
 module "azurerm_keyvault" {
   source = "./modules/kv"
-  
+
 }

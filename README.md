@@ -4,6 +4,8 @@
 ## /devops contains a basic remote backend for Azure.
 - Storage account for state managment
 - Key vault for secrets management
+- Azure container registry for container images
+- Azure Compute Gallery for image and application management
 
 ## /adf will contain modules for creating a v2 Azure Data Factory deployment
 
