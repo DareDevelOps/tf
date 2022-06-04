@@ -8,3 +8,4 @@ variable "az_resource_location" {
   type = string
   
 }
+

@@ -3,5 +3,9 @@ resource "azurerm_resource_group" "rg" {
   location = "eastus"
 }
  module "adf" {
-   source = "./modules"
+   source = "./modules/adf"
+ }
+
+ module "kv" {
+   source = "./modules/kv"
  }
