@@ -9,3 +9,7 @@ resource "azurerm_resource_group" "rg" {
  module "kv" {
    source = "./modules/kv"
  }
+
+ module "sa" {
+   source = "./modules/sa"
+ }
